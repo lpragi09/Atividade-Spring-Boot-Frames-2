@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Task API</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Task API</h1>
+    <p>Cliente para testar o CRUD de tarefas feito em Spring Boot. A API roda na sua máquina;
+      esta página só faz as requisições para ela.</p>
+    <form id="conexao" class="conexao">
+      <label for="baseUrl">Endereço da API</label>
+      <input id="baseUrl" value="http://localhost:8080" spellcheck="false">
+      <button type="submit">Conectar</button>
+      <span id="status" class="status"></span>
+    </form>
+  </header>
+
+  <main>
+    <section>
+      <h2 id="tituloForm">Nova tarefa</h2>
+      <form id="form" class="form">
+        <input type="hidden" id="id">
+        <label>Título <input id="title" required maxlength="120"></label>
+        <label>Descrição <textarea id="description" rows="3"></textarea></label>
+        <label>Prazo <input id="dueDate" type="date"></label>
+        <div class="acoes">
+          <button type="submit" id="salvar">Criar (POST)</button>
+          <button type="button" id="cancelar" class="secundario" hidden>Cancelar edição</button>
+        </div>
+      </form>
+
+      <h2>Requisição</h2>
+      <pre id="log" class="log">Nenhuma requisição ainda.</pre>
+    </section>
+
+    <section>
+      <div class="cabecalho-lista">
+        <h2>Tarefas</h2>
+        <button type="button" id="recarregar" class="secundario">GET /tasks</button>
+      </div>
+      <ul id="lista" class="lista"></ul>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
