@@ -1,0 +1,56 @@
+{
+  "info": {
+    "name": "Task API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8080" }
+  ],
+  "item": [
+    {
+      "name": "Criar tarefa",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/tasks",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": 1,\n  \"title\": \"Casa\",\n  \"description\": \"Organizar as tarefas de casa\",\n  \"dueDate\": \"2026-12-31\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Listar tarefas",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/tasks"
+      }
+    },
+    {
+      "name": "Buscar tarefa por id",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/tasks/1"
+      }
+    },
+    {
+      "name": "Atualizar tarefa",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/tasks/1",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"trabalho\",\n  \"description\": \"Organizar as tarefas do trabalho\",\n  \"dueDate\": \"2026-12-25\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Excluir tarefa",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/tasks/1"
+      }
+    }
+  ]
+}
